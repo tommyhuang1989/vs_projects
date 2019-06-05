@@ -1,0 +1,15 @@
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\bin\Debug\tasks_demo_20190605.exe.config
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\bin\Debug\tasks_demo_20190605.exe
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\bin\Debug\tasks_demo_20190605.pdb
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.csprojAssemblyReference.cache
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\MainWindow.g.cs
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\App.g.cs
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605_MarkupCompile.cache
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605_MarkupCompile.lref
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\MainWindow.baml
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.g.resources
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.Properties.Resources.resources
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.csproj.GenerateResource.cache
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.csproj.CoreCompileInputs.cache
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.exe
+D:\github_projects\vs_projects\tasks_demo_20190605\tasks_demo_20190605\obj\Debug\tasks_demo_20190605.pdb
