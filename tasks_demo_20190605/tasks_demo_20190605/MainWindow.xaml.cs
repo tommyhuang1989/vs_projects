@@ -27,6 +27,7 @@ namespace tasks_demo_20190605 {
             test();
         }
 
+        #region methods
         public void task1() {
             Task t = Task.Run(() => {
                 for (int i = 0; i < 10; i++) {
@@ -92,12 +93,109 @@ namespace tasks_demo_20190605 {
             //token_source.Cancel();
         }
 
+        public void task4() {
+            Task<int[]> parent = Task.Run(() => {
+                var results = new int[3];
+                new Task(() => {
+                    results[0] = 0;
+                }, TaskCreationOptions.AttachedToParent).Start();
+
+                new Task(() => {
+                    results[1] = 1;
+                }, TaskCreationOptions.AttachedToParent).Start();
+
+                new Task(() => {
+                    results[2] = 2;
+                }, TaskCreationOptions.AttachedToParent).Start();
+
+                return results;
+            });
+
+            //parent.ContinueWith((i) => {
+            //    foreach (int item in i.Result) {
+            //        Console.WriteLine(item);
+            //    }
+            //});
+
+            parent.ContinueWith(i => Console.WriteLine(i.Result.Length));
+        }
+
+        public void task5() {
+            Task t = Task.Run(() => {
+                Console.WriteLine("parent task begin");
+                new Task(() => {
+                    for (int i = 0; i < 10; i++) {
+                        Thread.Sleep(10);
+                        Console.WriteLine(i);
+                    }
+                }, TaskCreationOptions.AttachedToParent).Start();
+
+                new Task(() => {
+                    for (int i = 0; i < 10; i++) {
+                        Thread.Sleep(100);
+                        Console.WriteLine(i);
+                    }
+                }, TaskCreationOptions.AttachedToParent).Start();
+
+                Console.WriteLine("parent task finished.");
+            });
+
+            var s = t.ContinueWith((i)=> {
+                Console.WriteLine("parent continue task finished.");
+            });
+
+            s.Wait();
+        }
+
+        public void task6() {
+            Task<int[]> parent = Task.Run(() => {
+                int[] results = new int[3];
+
+                TaskFactory factory = new TaskFactory(TaskCreationOptions.AttachedToParent, TaskContinuationOptions.ExecuteSynchronously);
+                factory.StartNew(() => { results[0] = 100; });
+                factory.StartNew(() => { results[1] = 200; });
+                factory.StartNew(() => { results[2] = 300; });
+
+                return results;
+            });
+
+            foreach (var item in parent.Result) {
+                Console.WriteLine(item);
+            }
+        }
+
+        public void task7() {
+            Task[] tasks = new Task[3];
+
+            tasks[0] = Task.Run(() => {
+                Thread.Sleep(1000);
+                Console.WriteLine("i am 0");
+            });
+
+            tasks[1] = Task.Run(() => {
+                Thread.Sleep(1000);
+                Console.WriteLine("i am 1");
+            });
+
+            tasks[2] = Task.Run(() => {
+                Thread.Sleep(3000);
+                Console.WriteLine("i am 2");
+            });
+
+            //Task.WaitAll(tasks);
+            Task.WhenAll(tasks);
+        }
+        #endregion
 
         private void test() {
             //task1();
             //thread1();
             //task2();
-            task3();
+            //task3();
+            //task4();
+            //task5();
+            //task6();
+            task7();
         }
     }
 }
