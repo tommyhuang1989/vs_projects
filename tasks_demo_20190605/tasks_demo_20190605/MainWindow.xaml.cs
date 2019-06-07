@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -197,6 +198,18 @@ namespace tasks_demo_20190605 {
             var numbers = Enumerable.Range(0, 8);
             Parallel.ForEach(numbers, i => Console.WriteLine(i));
         }
+
+        public void task10() {
+            string result = DownloadContent().Result;
+            Console.WriteLine(result);
+        }
+
+        public static async Task<string> DownloadContent() {
+            using (HttpClient client = new HttpClient()) {
+                string result = await client.GetStringAsync("http://www.baidu.com");
+                return result;
+            }
+        }
         #endregion
 
         private void test() {
@@ -209,7 +222,8 @@ namespace tasks_demo_20190605 {
             //task6();
             //task7();
             //task8();
-            task9();
+            //task9();
+            task10();
         }
     }
 }
