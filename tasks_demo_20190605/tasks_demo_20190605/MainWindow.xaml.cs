@@ -185,6 +185,18 @@ namespace tasks_demo_20190605 {
             //Task.WaitAll(tasks);
             Task.WhenAll(tasks);
         }
+
+        /// <summary>
+        /// 并行执行 10 个线程
+        /// </summary>
+        public void task8() {
+            Parallel.For(0, 10, i => Console.WriteLine(Thread.CurrentThread.Name +i));
+        }
+
+        public void task9() {
+            var numbers = Enumerable.Range(0, 8);
+            Parallel.ForEach(numbers, i => Console.WriteLine(i));
+        }
         #endregion
 
         private void test() {
@@ -195,7 +207,9 @@ namespace tasks_demo_20190605 {
             //task4();
             //task5();
             //task6();
-            task7();
+            //task7();
+            //task8();
+            task9();
         }
     }
 }
